@@ -32,4 +32,7 @@ https://github.com/profBruno-UFC-Qx/qxd0020-manga-store-starter-code/blob/5adb9b
 ## Router
 
 - Arquivo de configuração do router e suas rotas
+https://github.com/profBruno-UFC-Qx/qxd0020-manga-store-starter-code/blob/c22a8e8b85a32feb6864c2ef8f60ba29b115fbf1/frontend/src/router/index.ts#L10
+  
 - No informamos que a aplicação fará uso do Vue-router
+https://github.com/profBruno-UFC-Qx/qxd0020-manga-store-starter-code/blob/c22a8e8b85a32feb6864c2ef8f60ba29b115fbf1/frontend/src/main.ts#L13
