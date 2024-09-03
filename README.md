@@ -2,6 +2,11 @@
 
 No frontend, temos a tela inicial recuperando e mostrando as informações de todos os mangás cadastrados.
 
+Além disso foi adicionado o VueRouter. No momento temos duas páginas:
+
+- `/` que mostra a página principal com todos os mangás
+- `/mangas/:id` que mostra os detalhes de um mangá 
+
 
 # Possíveis dúvidas ou problema
 
@@ -24,7 +29,7 @@ https://github.com/profBruno-UFC-Qx/qxd0020-manga-store-starter-code/blob/5adb9b
 No app.vue estamos usando o hook **OnMounted** se você quiser entender melhor o que é um hook e o funcionamento do **OnMounted** confira a [documentação oficial](https://vuejs.org/guide/essentials/lifecycle.html).
 https://github.com/profBruno-UFC-Qx/qxd0020-manga-store-starter-code/blob/5adb9babdd4479a30675f54343e34e53ecfe0d99/frontend/src/App.vue#L9
 
-# Faltou explicar
+## Router
 
-- Hooks
-- Implementar o tratamento de erro das requisições
+- Arquivo de configuração do router e suas rotas
+- No informamos que a aplicação fará uso do Vue-router

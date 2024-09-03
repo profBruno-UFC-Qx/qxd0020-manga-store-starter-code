@@ -1,17 +1,4 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import type { Manga } from './types';
-import { api } from './api';
-import MangaCard from './components/MangaCard.vue'
-
-const mangas = ref([] as Manga[])
-
-onMounted( async () => {
-  const { data } = await api.get('/mangas')
-  mangas.value = data.data
-})
-
-
 </script>
 
 <template>
@@ -130,17 +117,7 @@ onMounted( async () => {
 
     <div class="album py-5 bg-body-tertiary">
       <div class="container">
-
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <MangaCard  v-for="(manga, i) in mangas" 
-          :key="i"
-          :title="manga.title"
-          :number="manga.number"
-          :price="manga.price"
-          :summary="manga.summary"
-          :cover="manga.cover"
-          />
-        </div>
+        <RouterView></RouterView>
       </div>
     </div>
 
