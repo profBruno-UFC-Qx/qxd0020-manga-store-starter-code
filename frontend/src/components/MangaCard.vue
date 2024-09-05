@@ -2,19 +2,21 @@
 
 
 import type { Manga } from '@/types';
-import { BASE_URL } from '@/api';
+import { useUpload } from '@/composables/useUpload';
 defineProps<Manga>()
+
+const uploadHelper = useUpload()
 </script>
 
 <template>
-  <RouterLink :to="`/mangas/${id}`">
+  <RouterLink :to="`/mangas/${id}`" class="text-decoration-none">
     <div class="col">
       <div class="card shadow-sm">
-        <img :src="BASE_URL + cover.url" :alt="`Capa do Manga ${number}`" class="cover">
+        <img :src="uploadHelper(cover.url)" :alt="`Capa do Manga ${number}`" class="cover">
         <div class="card-body">
           <h5 class="card-title">{{ number }} - {{  title }}</h5>
           <div class="d-flex justify-content-between align-items-center">
-            <small class="text-body-secondary">{{ price }}</small>
+            <small class="text-danger">{{ price }}</small>
           </div>
         </div>
       </div>

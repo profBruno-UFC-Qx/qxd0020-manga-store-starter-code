@@ -1,11 +1,14 @@
 # O que está implementado?
 
 No frontend, temos a tela inicial recuperando e mostrando as informações de todos os mangás cadastrados.
+Uma tela que mostrar mais informações de um Mangá específico, além da tela de login, que redireciona o usuário de acordo com o papel que ele possui na aplicação.
 
 Além disso foi adicionado o VueRouter. No momento temos duas páginas:
 
 - `/` que mostra a página principal com todos os mangás
 - `/mangas/:id` que mostra os detalhes de um mangá 
+- `\login`: Tela com o formulário de login da aplicação
+
 
 
 # Possíveis dúvidas ou problema
@@ -36,3 +39,14 @@ https://github.com/profBruno-UFC-Qx/qxd0020-manga-store-starter-code/blob/c22a8e
   
 - No informamos que a aplicação fará uso do Vue-router
 https://github.com/profBruno-UFC-Qx/qxd0020-manga-store-starter-code/blob/c22a8e8b85a32feb6864c2ef8f60ba29b115fbf1/frontend/src/main.ts#L13
+
+- Foi adicionada uma rota que trata o caso do usuário tentar ir para um rota que não existe
+
+
+## Login
+
+O login está funcional, fazemos duas requisições:
+
+1. A primeira para realizar o login
+2. A segunda é feita para recuperar o papel do usuário recém logado
+

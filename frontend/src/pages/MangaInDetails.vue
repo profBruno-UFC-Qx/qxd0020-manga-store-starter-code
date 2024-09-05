@@ -1,10 +1,9 @@
 <script setup lang="ts">
 
-
-
-import { ref, onMounted} from 'vue'
+import { ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { BASE_URL, api } from '@/api'
+import { api } from '@/api'
+import { useUpload } from '@/composables/useUpload';
 import type { Manga } from '@/types';
 
 
@@ -12,6 +11,8 @@ const route = useRoute()
 const manga = ref({} as Manga)
 const loading = ref(true)
 const error = ref<Error>()
+const uploadHelper = useUpload()
+
 
 async function getManga(){
   try {
@@ -34,12 +35,15 @@ getManga()
 
 
 <template>
-    <div class="row justify-content-center">
+    <div v-if="loading" class="spinner-grow" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div v-else class="row justify-content-center">
       <div class="col-lg-8 col-sm-12">
         <div class="card mb-3">
           <div class="row g-0">
             <div class="col-md-4">
-              <!--<img :src="BASE_URL + manga.cover.url" class="w-100 rounded-start" :alt="manga.title">-->
+              <img :src="uploadHelper(manga.cover.url)" class="w-100 rounded-start" :alt="manga.title">
             </div>
             <div class="col-md-8">
               <div class="card-body">
