@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { useUserStore } from '@/stores/userStore'
+
+const userStore = useUserStore()
+
+ 
 </script>
 
 <template>
@@ -84,7 +89,11 @@
             <ul class="list-unstyled">
               <li><a href="#" class="text-white">Follow on Twitter</a></li>
               <li><a href="#" class="text-white">Like on Facebook</a></li>
-              <li><a href="#" class="text-white">Email me</a></li>
+              <template v-if="userStore.username">
+                <li><a href="#" class="text-white">{{ userStore.username }}</a></li>
+                <li><a href="#" @click="userStore.logout" class="text-white">Logout</a></li>
+              </template>
+              <li v-else><RouterLink to="/login" class="text-white">Login</RouterLink></li>
             </ul>
           </div>
         </div>
