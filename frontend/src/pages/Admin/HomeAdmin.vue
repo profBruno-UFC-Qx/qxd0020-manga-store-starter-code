@@ -18,7 +18,7 @@ const mangaToDelete = ref<Manga | undefined>(undefined)
 
 onMounted(async () => {
   try {
-    const { data } = await api.get('/mangas?populate=cover')
+    const { data } = await api.get('/mangas?populate=cover&sort[0]=number')
     mangas.value = data.data
   } catch (e) {
     if (isAxiosError(e) && isApplicationError(e.response?.data)) {
@@ -65,6 +65,11 @@ async function remover(id: number) {
     {{ exception.error.message }}
   </div>
 
+  <RouterLink to="/mangas/create" class="btn btn-success">
+    <i class="bi bi-plus"></i>
+    Add
+  </RouterLink>
+
   <div v-if="loading" class="spinner-border" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
@@ -89,9 +94,9 @@ async function remover(id: number) {
           <td>{{ manga.number }}</td>
           <td>{{ manga.price }}</td>
           <td>
-            <button class="btn btn-secondary">
+            <RouterLink :to="`/mangas/edit/${manga.id}`" class="btn btn-secondary">
               <i class="bi bi-pencil"></i>
-            </button>
+            </RouterLink>
             <button @click="askToDelete(manga.id)" class="btn btn-danger">
               <i class="bi bi-trash"></i> 
             </button>

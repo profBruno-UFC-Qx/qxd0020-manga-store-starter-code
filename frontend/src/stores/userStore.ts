@@ -13,7 +13,7 @@ export const useUserStore = defineStore('user', () => {
     }
   })
 
-  const jwt = ref('')
+  const jwt = ref(localStorage.getItem('jwt') || '')
 
   const role = computed(() => user.value.role.name)
   const username = computed(() => user.value.username)
@@ -28,6 +28,7 @@ export const useUserStore = defineStore('user', () => {
     localStorage.setItem('id', authUser.id.toString())
     localStorage.setItem('email', authUser.email)
     localStorage.setItem('role', authUser.role.name)
+    localStorage.setItem('jwt', token)
   }
 
   function logout() {
